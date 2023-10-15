@@ -28,3 +28,7 @@ def send_message(client_socket):
 # Create a socket
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect((HOST, PORT))
+
+# Start a thread to send messages
+send_thread = threading.Thread(target=send_message, args=(client_socket,))
+send_thread.start()
