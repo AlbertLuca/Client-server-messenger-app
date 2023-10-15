@@ -24,3 +24,7 @@ def send_message(client_socket):
         else:
             # Send a message
             client_socket.send(message.encode())
+
+# Create a socket
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client_socket.connect((HOST, PORT))
