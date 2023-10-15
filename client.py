@@ -32,3 +32,13 @@ client_socket.connect((HOST, PORT))
 # Start a thread to send messages
 send_thread = threading.Thread(target=send_message, args=(client_socket,))
 send_thread.start()
+
+# Recieve and display messages from the server
+while True:
+    data = client_socket.recv(1024)
+    if not data:
+        break
+
+    print(data.decode())
+
+client_socket.close()
