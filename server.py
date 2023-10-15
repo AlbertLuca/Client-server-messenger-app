@@ -48,3 +48,7 @@ def handle_client(client_socket):
 
 # Listen for incoming connections
 print(f"Listening for connections on {HOST}:{PORT}...")
+while True:
+    client_socket, client_address = server_socket.accept()
+    thread = threading.Thread(target=handle_client, args=(client_socket,))
+    thread.start()
